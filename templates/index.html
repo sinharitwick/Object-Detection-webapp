@@ -1,50 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>UAV Aided Object Detection</title>
-</head>
-
-<body>
-    
-  <section id="header">
-    <div class="header container">
-      <div class="nav-bar">
-        <div class="brand">
-          <a href="#hero"><h1><span>UAV AIDED <span> </span> </span>OBJECT DETECTION</h1></a>
-        </div>
-        
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Detection Webapp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark text-white mb-3 p-3">
+      <div class="container-fluid">
+        UAV-aided Object Detection using Thermal Imagery
       </div>
-    </div>
-  </section>
-
- 
-
-  <section id="maine">
-    <div class="maine container">
-      <div>
+    </nav>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="card-body p-3">
         <form action="/" method="post" enctype="multipart/form-data">
-          <input type="file" name="file" accept="image/*" required> 
-           <body>
-            <img src= "{{url_for('static', filename='file')}}" >
-            </body>
-          <button type="submit" class="sbutton">Upload image/video</button>
-      </form>
+          <input type="file" class="form-control" name="file" accept="image/*" required />
+          <button type="submit" class="btn btn-dark mt-3">Detect</button>
+        </form>
       </div>
     </div>
-  </section>
-
-
-
-  <section id="footer">
-    <div class="footer container">   
-      <p>© NIT Silchar 2024. All rights reserved</p>
-    </div>
-  </section>
-
-</body>
+    <footer class="bg-dark text-white text-center text-center p-3" style="bottom: 0; position: fixed; width: 100%;">
+        © 2024 All rights reserved
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
 </html>
