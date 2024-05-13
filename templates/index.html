@@ -2,14 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>UAV Aided Object Detection</title>
 </head>
+
 <body>
-    <h1>Demo</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required>
-        <button type="submit">Upload</button>
-    </form>
+    
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero"><h1><span>UAV AIDED <span> </span> </span>OBJECT DETECTION</h1></a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <section id="maine">
+    <div class="maine container">
+      <div>
+        <form action="/" method="post" enctype="multipart/form-data">
+          <input type="file" name="file" accept="image/*" required> 
+           <body>
+            <img src= "{{url_for('static', filename='file')}}" >
+            </body>
+          <button type="submit" class="sbutton">Upload image/video</button>
+      </form>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="footer">
+    <div class="footer container">   
+      <p>© NIT Silchar 2024. All rights reserved</p>
+    </div>
+  </section>
+
 </body>
 </html>

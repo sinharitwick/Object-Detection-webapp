@@ -11,6 +11,7 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
+
 @app.route("/", methods=["GET", "POST"])
 def predict_img():
     if request.method == "POST":
@@ -18,7 +19,9 @@ def predict_img():
             f=request.files['file'] 
             basepath = os.path.dirname(__file__)
             filepath = os.path.join(basepath,'uploads', f.filename)
+
             print("upload folder is ", filepath)
+            
             f.save(filepath)
             global imgpath
             predict_img.imgpath = f.filename
@@ -62,10 +65,17 @@ def display(filename):
 
     else:
         return "Invalid file format"
+    
+
+
+@app.route('/<path:filename>')
+def displayImage(filename):
+    return render_template('index.html', image_path=filename)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flask app exposing yolov9 models")
-    parser.add_argument("--port", default=5000, type=int, help="port number")
+    parser.add_argument("--port", default=8000, type=int, help="port number")
     args = parser.parse_args()
     model = YOLO('best.pt')
     app.run(host="0.0.0.0", port=args.port)
